@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import unittest
 from graph import Graph
-from exceptions import DigraphError, NotDigraphError
+from graph_exceptions import DigraphError, NotDigraphError
 
 class TestBasicOperations(unittest.TestCase):
 

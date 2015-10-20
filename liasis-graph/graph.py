@@ -47,7 +47,7 @@ Complex methods:
 """
 
 import random
-from exceptions import NotDigraphError, DigraphError
+from graph_exceptions import NotDigraphError, DigraphError
 
 class Graph(object):
 
@@ -259,8 +259,8 @@ class Graph(object):
 	def is_connected(self):
 		rd = self.random()
 		transitive = self.transitive_closure(rd)
-		print(str(self._vertices))
-		print(str(transitive))
+		# print(str(self._vertices))
+		# print(str(transitive))
 		return self._vertices == transitive
 	
 	def transitive_closure(self, vertex):
