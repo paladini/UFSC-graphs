@@ -7,7 +7,7 @@ associates a given "key" with a "value". In our case a "key" is a string
 representing the label of the vertex and the value is a set of "vertex" 
 that is connected to the first one.
 
-For example, if we have a graph with two connected vertices (called "A" and 
+For example, if we have a graph with two vertices connected (called "A" and 
 "B", respectively), we would represent it in the following way:
 
 	{ "A": set(["B"]), "B": set(["A"]) }
@@ -170,7 +170,9 @@ class Graph(object):
 		"""
 		if self._digraph:
 			if vertex in self._vertices:
-				return { v for v in self._vertices if vertex in self._vertices[v] }
+				return set(v for v in self._vertices if vertex in self._vertices[v])
+			else:
+				return set()
 		else:
 			raise NotDigraphError("Not directed graphs doesn't implement predecessors method.")
 
@@ -187,6 +189,8 @@ class Graph(object):
 		if self._digraph:
 			if vertex in self._vertices:
 				return self._vertices[vertex]
+			else:
+				return set()
 		else:
 			raise NotDigraphError("Not directed graphs doesn't implement sucessors method.")
 
@@ -230,6 +234,8 @@ class Graph(object):
 		if not self._digraph:
 			if vertex in self._vertices:
 				return len(self.adjacents_to(vertex))
+			else:
+				return 0
 		else:
 			raise DigraphError("Digraph doesn't implement Degree method. \
 				Take a look at in_degree(vertex) and out_degree(vertex).")

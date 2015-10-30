@@ -7,8 +7,8 @@ class TestBasicOperations(unittest.TestCase):
 
 	# Don't know why isn't working :/
 	# def test_construct_without_params(self):
-	# 	graph = Graph()
-	# 	self.assertEqual(graph.order(), 0)
+		# graph = Graph()
+		# self.assertEqual(graph.order(), 0)
 
 	def test_construct_with_params(self):
 		graph = Graph({
@@ -41,24 +41,24 @@ class TestBasicOperations(unittest.TestCase):
 		graph = Graph()
 		graph.remove("a")
 		self.assertEqual(graph.order(), 0)
-		self.assertEqual(graph.degree("a"), None)
+		self.assertEqual(graph.degree("a"), 0)
 
 	def test_remove(self):
 		graph = Graph()
 		graph.add("a")
 		graph.remove("a")
 		self.assertEqual(graph.order(), 0)
-		self.assertEqual(graph.degree("a"), None)
+		self.assertEqual(graph.degree("a"), 0)
 
 	def test_remove_already_removed(self):
 		graph = Graph()
 		graph.add("a")
 		graph.remove("a")
 		self.assertEqual(graph.order(), 0)
-		self.assertEqual(graph.degree("a"), None)
+		self.assertEqual(graph.degree("a"), 0)
 		graph.remove("a")
 		self.assertEqual(graph.order(), 0)
-		self.assertEqual(graph.degree("a"), None)
+		self.assertEqual(graph.degree("a"), 0)
 
 	def test_random(self):
 		graph = Graph({
@@ -272,11 +272,11 @@ class DerivedOperations(unittest.TestCase):
 
 	def test_is_connected(self):
 		graph = Graph({
-			"a": set(["b"]),
-			"b": set(["c"]),
-			"c": set(["d"]),
-			"d": set(["e"]),
-			"e": set(["a"])
+			"a": set(["e", "b"]),
+			"b": set(["a", "c"]),
+			"c": set(["b", "d"]),
+			"d": set(["c", "e"]),
+			"e": set(["d", "a"])
 		})
 		self.assertTrue(graph.is_connected())
 

@@ -2,9 +2,12 @@
 # Try to run tests with nosetests. 
 # If 'nose' isn't installed, run tests from Python (using unittest without verbosity).
 # 
-all: run_tests
+all: run
 
-run_tests: check
+run:
+
+
+test: check
 	nosetests -v test_digraph.py 
 	nosetests -v test_not_digraph.py
 
