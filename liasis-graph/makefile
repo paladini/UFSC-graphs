@@ -6,6 +6,8 @@ all: run
 
 run:
 
+coverage: test
+	# implementar isso aqui depois
 
 test: check
 	nosetests -v test_digraph.py test_not_digraph.py --with-coverage --cover-html --cover-html-dir=tests_coverage

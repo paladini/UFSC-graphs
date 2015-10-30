@@ -243,6 +243,17 @@ class TestBasicOperations(unittest.TestCase):
 		self.assertTrue(graph.sucessors("a") == set(["b", "d"]))
 		self.assertEqual(len(graph.sucessors("a")), 2)
 
+	def test_random(self):
+		graph = Graph({
+			"a": set(["b", "d"]), 
+			"b": set(["a", "c"]),
+			"c": set(["b", "e"]),
+			"d": set(["a", "e"]),
+			"e": set(["c", "d"])
+		})
+		vertex = graph.random()
+		self.assertTrue(vertex in graph.vertices())
+
 class DerivedOperations(unittest.TestCase):
 
 	def test_is_regular(self):

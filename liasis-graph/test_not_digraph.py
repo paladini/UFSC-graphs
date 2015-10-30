@@ -228,6 +228,17 @@ class TestBasicOperations(unittest.TestCase):
 		with self.assertRaises(NotDigraphError):
 			graph.sucessors("a")
 
+	def test_random(self):
+		graph = Graph({
+			"a": set(["b", "d"]), 
+			"b": set(["a", "c"]),
+			"c": set(["b", "e"]),
+			"d": set(["a", "e"]),
+			"e": set(["c", "d"])
+		})
+		vertex = graph.random()
+		self.assertTrue(vertex in graph.vertices())
+
 class DerivedOperations(unittest.TestCase):
 
 	def test_is_regular(self):
@@ -309,6 +320,19 @@ class DerivedOperations(unittest.TestCase):
 			"e": set(["b", "a"])
 		})
 		self.assertFalse(graph.is_tree())
+
+	def test_transitive_closure(self):
+		graph = Graph({
+			"a": set(["b"]),
+			"b": set(["a"]),
+			"c": set(["e"]),
+			"d": set(["e"]),
+			"e": set(["c", "d"])
+		})
+		print(graph.transitive_closure("a"))
+		print(graph.transitive_closure("e"))
+		self.assertTrue(graph.transitive_closure("a") == set(["b"]))
+		self.assertTrue(graph.transitive_closure("e") == set(["d", "e"]))
 
 if __name__ == "__main__":
 	unittest.main()
