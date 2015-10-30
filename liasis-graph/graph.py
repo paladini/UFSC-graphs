@@ -127,7 +127,7 @@ class Graph(object):
 
 		:return Returns a set of vertex containing all vertices of the graph.
 		"""
-		return { vertex for vertex in self._vertices } # set or vector?
+		return set(vertex for vertex in self._vertices) # set or vector?
 
 	def random(self):
 		""" Return a single random vertex of the graph.
@@ -148,6 +148,8 @@ class Graph(object):
 		if not self._digraph:
 			if vertex in self._vertices:
 				return self._vertices[vertex]
+			else:
+				return set()
 		else:
 			raise DigraphError("Digraph doesn't implement adjacents_to method.")
 
@@ -243,8 +245,13 @@ class Graph(object):
 	##########################
 	##  Derived Operations  ##
 	##########################
+	## Only for not digraph ##
+	##########################
 
 	def is_regular(self):
+		if self._digraph:
+			raise NotImplementedError
+
 		n = self.degree(self.random())
 		for vertex in self._vertices:
 			if self.degree(vertex) != n:
@@ -252,6 +259,8 @@ class Graph(object):
 		return True
 
 	def is_complete(self):
+		if self._digraph:
+			raise NotImplementedError
 		max_degree = self.order() - 1
 		for vertex in self._vertices:
 			if self.degree(vertex) != max_degree:
@@ -259,10 +268,14 @@ class Graph(object):
 		return True
 
 	def is_tree(self):
+		if self._digraph:
+			raise NotImplementedError
 		v = self.random()
 		return (self.is_connected()) and (not self.__has_cicle_with(v, v, set()))
 
 	def is_connected(self):
+		if self._digraph:
+			raise NotImplementedError
 		rd = self.random()
 		transitive = self.transitive_closure(rd)
 		# print(str(self._vertices))
@@ -270,9 +283,14 @@ class Graph(object):
 		return self._vertices == transitive
 	
 	def transitive_closure(self, vertex):
+		if self._digraph:
+			raise NotImplementedError
 		return self.__search_transitive_closure(vertex, set())
 
 	def __search_transitive_closure(self, vertex, already_visited):
+		if self._digraph:
+			raise NotImplementedError
+
 		ft = set()
 		already_visited.add(vertex)
 		for v in self.adjacents_to(vertex):
@@ -281,6 +299,9 @@ class Graph(object):
 		return ft
 
 	def __has_cicle_with(self, vertex, current_vertex, previous_vertex, already_visited):
+		if self._digraph:
+			raise NotImplementedError
+
 		if current_vertex in already_visited:
 			return current_vertex == vertex
 

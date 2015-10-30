@@ -253,7 +253,8 @@ class DerivedOperations(unittest.TestCase):
 			"d": set(["a", "e"]),
 			"e": set(["c", "d"])
 		}, digraph=True)
-		self.assertTrue(graph.is_regular())
+		with self.assertRaises(NotImplementedError):
+			graph.is_regular()
 
 	def test_is_regular_negative(self):
 		graph = Graph({
@@ -263,7 +264,8 @@ class DerivedOperations(unittest.TestCase):
 			"d": set(["a"]),
 			"e": set(["c"])
 		}, digraph=True)
-		self.assertFalse(graph.is_regular())
+		with self.assertRaises(NotImplementedError):
+			graph.is_regular()
 
 	def test_is_complete(self):
 		graph = Graph({
@@ -273,7 +275,8 @@ class DerivedOperations(unittest.TestCase):
 			"d": set(["a", "b", "c", "e"]),
 			"e": set(["c", "a", "b", "d"])
 		}, digraph=True)
-		self.assertTrue(graph.is_complete())
+		with self.assertRaises(NotImplementedError):
+			graph.is_complete()
 
 	def test_is_complete_negative(self):
 		graph = Graph({
@@ -283,7 +286,8 @@ class DerivedOperations(unittest.TestCase):
 			"d": set(["e"]),
 			"e": set(["c", "d"])
 		}, digraph=True)
-		self.assertFalse(graph.is_complete())
+		with self.assertRaises(NotImplementedError):
+			graph.is_complete()
 
 	def test_is_connected(self):
 		graph = Graph({
@@ -293,7 +297,8 @@ class DerivedOperations(unittest.TestCase):
 			"d": set(["e"]),
 			"e": set(["a"])
 		}, digraph=True)
-		self.assertTrue(graph.is_connected())
+		with self.assertRaises(NotImplementedError):
+			graph.is_connected()
 
 	def test_is_connected_negative(self):
 		graph = Graph({
@@ -303,7 +308,8 @@ class DerivedOperations(unittest.TestCase):
 			"d": set(["e"]),
 			"e": set(["c", "d"])
 		}, digraph=True)
-		self.assertFalse(graph.is_connected())
+		with self.assertRaises(NotImplementedError):
+			graph.is_connected()
 
 	def test_is_tree(self):
 		graph = Graph({
@@ -313,7 +319,8 @@ class DerivedOperations(unittest.TestCase):
 			"d": set(["b"]),
 			"e": set(["b"])
 		}, digraph=True)
-		self.assertTrue(graph.is_tree())
+		with self.assertRaises(NotImplementedError):
+			graph.is_tree()
 
 	def test_is_tree_negative(self):
 		graph = Graph({
@@ -323,7 +330,8 @@ class DerivedOperations(unittest.TestCase):
 			"d": set(["b", "a"]),
 			"e": set(["b", "a"])
 		}, digraph=True)
-		self.assertFalse(graph.is_tree())
+		with self.assertRaises(NotImplementedError):
+			graph.is_tree()
 
 if __name__ == "__main__":
 	unittest.main()

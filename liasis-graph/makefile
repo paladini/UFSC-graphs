@@ -8,8 +8,7 @@ run:
 
 
 test: check
-	nosetests -v test_digraph.py 
-	nosetests -v test_not_digraph.py
+	nosetests -v test_digraph.py test_not_digraph.py --with-coverage --cover-html --cover-html-dir=tests_coverage
 
 check: 
 	@type nosetests >/dev/null 2>&1 || /usr/bin/env python test_digraph.py

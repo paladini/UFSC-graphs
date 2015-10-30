@@ -7,8 +7,8 @@ class TestBasicOperations(unittest.TestCase):
 
 	# Don't know why isn't working :/
 	# def test_construct_without_params(self):
-		# graph = Graph()
-		# self.assertEqual(graph.order(), 0)
+	# 	graph = Graph()
+	# 	self.assertEqual(graph.order(), 0)
 
 	def test_construct_with_params(self):
 		graph = Graph({
