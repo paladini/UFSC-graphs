@@ -329,8 +329,6 @@ class DerivedOperations(unittest.TestCase):
 			"d": set(["e"]),
 			"e": set(["c", "d"])
 		})
-		print(graph.transitive_closure("a"))
-		print(graph.transitive_closure("e"))
 		self.assertTrue(graph.transitive_closure("a") == set(["b"]))
 		self.assertTrue(graph.transitive_closure("e") == set(["d", "e"]))
 

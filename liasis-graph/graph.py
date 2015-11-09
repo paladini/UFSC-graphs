@@ -38,7 +38,7 @@ Complex methods:
     is_connected()*
     transitive_closure(vertex)*
 
-* Not working because a wrong implementation of transitive_closure.
+* Not working because of a wrong implementation of transitive_closure.
 
 =========================================
 
@@ -278,8 +278,6 @@ class Graph(object):
             raise NotImplementedError
         rd = self.random()
         transitive = self.transitive_closure(rd)
-        # print(str(self._vertices))
-        # print(str(transitive))
         return self._vertices == transitive
     
     def transitive_closure(self, vertex):
