@@ -1,0 +1,19 @@
+Diferentemente do solicitado, não foi implementado um algoritmo para testar o grafo, mas sim testes automatizados de todo o sistema, que garantem o funcionamento do sistema com mais confiabilidade. Os testes unitários foram feitos para grafos não dirigidos e para grafos dirigidos (digrafos).
+
+Para executar os testes unitários basta rodar o seguinte comando no Terminal: "make". Os testes serão executados e será possível ver que existem três testes que não estão passando. Como estão relacionados aos "métodos complexos" (não solicitado no trabalho), creio que não haja um grande problema nisso. De qualquer forma, pelo tempo que tive disponível para debbugar a aplicação o problema parece estar na implementação do método transitive_closure().
+
+Existe também um recurso interessante que foi adicionado ao projeto que mostra qual a porcentagem de código que foi efetivamente testada pelos testes unitários. Já enviei uma versão anexada no .tar.gz, para vê-la basta abrir o arquivo "tests_coverage/index.html" em um navegador de Internet. Caso deseje gerar os arquivos que mostram a cobertura dos testes, basta executar "make coverage" e então abrir o arquivo já mencionado acima (neste último caso é necessário ver os pré-requisitos).
+
+
+Pré-requisitos
+------------------ 
+
+Para executar os testes unitários com mais detalhes e para checar o quanto os testes unitários cobrem a aplicação (em porcentagem), são necessários os seguintes módulos Python:
+
+- nose
+- coverage
+
+É possível instalar esses módulos com o gerenciador de pacotes do Python, o "pip". Para isso, execute no Terminal:
+
+"pip install nose"
+"pip install coverage"

@@ -5,7 +5,7 @@
 all: test
 
 coverage:
-	nosetests -v --pdb test_digraph.py test_not_digraph.py --with-coverage --cover-html --cover-html-dir=tests_coverage
+	nosetests -v test_digraph.py test_not_digraph.py --with-coverage --cover-html --cover-html-dir=tests_coverage
 
 test: check
 	nosetests -v test_digraph.py test_not_digraph.py

@@ -279,19 +279,6 @@ class Graph(object):
         rd = self.random()
         transitive = self.transitive_closure(rd)
         return self._vertices == transitive
-    
-    def transitive_closure(self, vertex):
-        if self._digraph:
-            raise NotImplementedError
-
-        done = False
-        while not done:
-            done = True
-            for v0, v1s in self._vertices[vertex]:
-                old_len = len(v1s)
-                for v2s in [g[v1] for v1 in v1s]:
-                    v1s |= v2s
-                done = done and len(v1s) == old_len
 
     def transitive_closure(self, vertex):
       if self._digraph:
